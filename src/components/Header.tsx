@@ -88,19 +88,11 @@ export function Header() {
             <Image
               src="/images/logo-full.png"
               alt={siteConfig.name}
-              width={160}
-              height={68}
-              className="h-12 w-auto sm:h-14"
+              width={200}
+              height={84}
+              className="h-12 w-auto sm:h-[3.6rem]"
               priority
             />
-            <div className="hidden sm:block leading-tight">
-              <div className="font-display text-navy-deep text-base md:text-lg font-bold">
-                Ravel Institute
-              </div>
-              <div className="text-xs text-muted tracking-wide uppercase">
-                of Nursing
-              </div>
-            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1 text-[0.92rem] font-semibold text-navy-dark">
