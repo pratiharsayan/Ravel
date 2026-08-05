@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --brand-navy: #0b3d91;
-  --brand-navy-dark: #072a66;
-  --brand-navy-deep: #041c45;
-  --brand-blue: #1565c0;
-  --brand-sky: #e8f1fb;
-  --brand-sky-soft: #f3f7fc;
-  --brand-gold: #c9971a;
-  --brand-gold-bright: #e8b923;
-  --brand-crimson: #b71c1c;
-  --brand-ink: #152033;
-  --brand-muted: #5a6578;
-  --brand-line: #d5e0ef;
+  /* Deep burnt orange / dark amber brown palette */
+  --brand-navy: #c2410c;
+  --brand-navy-dark: #7c2d12;
+  --brand-navy-deep: #431407;
+  --brand-blue: #d35400;
+  --brand-sky: #f8e4d4;
+  --brand-sky-soft: #fff8f3;
+  --brand-gold: #b45309;
+  --brand-gold-bright: #ea8c2f;
+  --brand-crimson: #9a3412;
+  --brand-ink: #1c100a;
+  --brand-muted: #6a5346;
+  --brand-line: #e6d3c2;
   --brand-white: #ffffff;
   --header-height: 4.5rem;
   --background: var(--brand-sky-soft);
@@ -81,9 +82,9 @@ img {
 
 .bg-atmosphere {
   background:
-    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(21, 101, 192, 0.12), transparent 55%),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(201, 151, 26, 0.1), transparent 50%),
-    linear-gradient(180deg, #f7fafd 0%, #eef4fb 45%, #f8fafc 100%);
+    radial-gradient(ellipse 80% 50% at 8% -10%, rgba(194, 65, 12, 0.12), transparent 55%),
+    radial-gradient(ellipse 55% 40% at 100% 0%, rgba(180, 83, 9, 0.1), transparent 50%),
+    linear-gradient(180deg, #fff8f3 0%, #f7ebe1 45%, #faf6f2 100%);
 }
 
 .bg-navy-pattern {
@@ -102,20 +103,20 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, var(--brand-gold-bright), var(--brand-gold));
-  color: var(--brand-navy-deep);
+  background: linear-gradient(135deg, var(--brand-gold-bright), var(--brand-navy));
+  color: #fff;
   font-weight: 700;
   padding: 0.75rem 1.35rem;
   border-radius: 0.35rem;
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-  box-shadow: 0 8px 20px rgba(201, 151, 26, 0.28);
+  box-shadow: 0 8px 20px rgba(194, 65, 12, 0.28);
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  filter: brightness(1.05);
+  filter: brightness(1.06);
 }
 
 .btn-secondary {
@@ -123,7 +124,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: var(--brand-navy);
+  background: var(--brand-navy-dark);
   color: white;
   font-weight: 600;
   padding: 0.75rem 1.35rem;
@@ -134,7 +135,7 @@ img {
 }
 
 .btn-secondary:hover {
-  background: var(--brand-navy-dark);
+  background: var(--brand-navy-deep);
   transform: translateY(-1px);
 }
 
@@ -172,7 +173,7 @@ img {
 
 .section-kicker {
   display: inline-block;
-  color: var(--brand-gold);
+  color: var(--brand-navy);
   font-weight: 700;
   font-size: 0.8rem;
   letter-spacing: 0.12em;
@@ -263,8 +264,8 @@ img {
 
 .site-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(11, 61, 145, 0.1);
-  border-color: rgba(11, 61, 145, 0.25);
+  box-shadow: 0 16px 36px rgba(124, 45, 18, 0.12);
+  border-color: rgba(194, 65, 12, 0.3);
 }
 
 .input-field {
@@ -280,8 +281,8 @@ img {
 
 .input-field:focus {
   outline: none;
-  border-color: var(--brand-blue);
-  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
+  border-color: var(--brand-navy);
+  box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.18);
 }
 
 .prose-site p {
