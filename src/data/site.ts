@@ -8,7 +8,9 @@ export const siteConfig = {
   phoneHrefs: ["tel:+919434155753", "tel:+919641692326", "tel:+917676826666"],
   address:
     "Ravel Institute of Nursing, Kamarbari, Rajarhat Main Rd, Kolkata, West Bengal 700135",
-  mapUrl: "https://maps.app.goo.gl/d8aqENHCLGuBxP7h8",
+  mapUrl: "https://share.google/R0X9bW5XKuQzZKypc",
+  mapEmbedUrl:
+    "https://www.google.com/maps?q=Ravel+Institute+of+Nursing,+Kamarbari,+Rajarhat+Main+Rd,+Kolkata,+West+Bengal+700135&output=embed",
   hours: "Mon - Sat : 10 AM - 5 PM",
   social: {
     facebook: "https://fb.com/ravelinstitute",
@@ -230,27 +232,43 @@ export const galleryImages = [
 
 export const heroSlides = [
   {
-    src: "/images/rav-banner.png",
-    alt: "Ravel Institute of Nursing campus banner",
-    title: "Best Male Nursing College in Kolkata",
-    subtitle: "Admission Open — 2026–27 Session",
-  },
-  {
-    src: "/images/rav-ban-11.png",
-    alt: "Ravel Institute nursing education",
-    title: "Pioneers in Male Nursing Education",
-    subtitle: "1st Male Nursing College in Kolkata",
+    src: "/images/3-min.png",
+    alt: "Ravel Institute of Nursing banner",
   },
   {
     src: "/images/1-min.png",
-    alt: "Nursing students at Ravel",
-    title: "Shape Your Future in Healthcare",
-    subtitle: "B.Sc Nursing & GNM Programs",
+    alt: "Best male nursing college in Kolkata",
   },
   {
-    src: "/images/3-min.png",
-    alt: "Ravel Institute facilities",
-    title: "100% Placement Assistance",
-    subtitle: "Train in our own superspeciality hospital",
+    src: "/images/Beige-Aesthetic-Fashion-Blog-Banner-1.jpg",
+    alt: "Admission open banner",
+  },
+  {
+    src: "/images/Beige-Aesthetic-Fashion-Blog-Banner-3.jpg",
+    alt: "Nursing career banner",
+  },
+  {
+    src: "/images/3.jpg",
+    alt: "Campus gallery banner",
+  },
+  {
+    src: "/images/7.jpg",
+    alt: "Institute event banner",
+  },
+  {
+    src: "/images/6.jpg",
+    alt: "Student life banner",
+  },
+  {
+    src: "/images/5.jpg",
+    alt: "Campus activities banner",
+  },
+  {
+    src: "/images/rav-ban-11.png",
+    alt: "Ravel Institute promotional banner",
+  },
+  {
+    src: "/images/rav-banner.png",
+    alt: "Ravel Institute of Nursing main banner",
   },
 ];

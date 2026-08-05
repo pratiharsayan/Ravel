@@ -89,6 +89,27 @@ export function ContactForm() {
           <h3 className="font-semibold text-navy mb-1">Hours</h3>
           <p className="text-muted text-sm">{siteConfig.hours}</p>
         </div>
+
+        <div className="overflow-hidden rounded-lg border border-line">
+          <iframe
+            title="Ravel Institute of Nursing on Google Maps"
+            src={siteConfig.mapEmbedUrl}
+            className="h-56 w-full"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+          <div className="border-t border-line bg-sky-soft px-3 py-2 text-center">
+            <a
+              href={siteConfig.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-blue"
+            >
+              View on Google Maps →
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

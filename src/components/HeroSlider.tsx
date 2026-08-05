@@ -11,18 +11,23 @@ export function HeroSlider() {
   useEffect(() => {
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % heroSlides.length);
-    }, 5500);
+    }, 4000);
     return () => clearInterval(id);
   }, []);
 
+  const go = (dir: -1 | 1) => {
+    setIndex((i) => (i + dir + heroSlides.length) % heroSlides.length);
+  };
+
   return (
-    <section className="relative overflow-hidden bg-navy-deep text-white">
-      <div className="relative min-h-[58vh] md:min-h-[68vh]">
+    <section className="relative overflow-hidden bg-navy-deep">
+      {/* Match original site banner sizing: full-width images, fixed responsive heights */}
+      <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[650px]">
         {heroSlides.map((slide, i) => (
           <div
             key={slide.src}
             className={`hero-slide absolute inset-0 ${
-              i === index ? "opacity-100 z-[1]" : "opacity-0 z-0"
+              i === index ? "opacity-100 z-[1]" : "opacity-0 z-0 pointer-events-none"
             }`}
             aria-hidden={i !== index}
           >
@@ -31,57 +36,63 @@ export function HeroSlider() {
               alt={slide.alt}
               fill
               priority={i === 0}
-              className="object-cover"
+              className="object-cover object-center"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-dark/70 to-navy/35" />
           </div>
         ))}
 
-        <div className="relative z-[2] container-site flex min-h-[58vh] md:min-h-[68vh] items-center py-16">
-          <div className="max-w-2xl animate-fade-up">
-            <p className="section-kicker text-gold-bright mb-3">
-              {siteConfig.name}
-            </p>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              {heroSlides[index].title}
-            </h1>
-            <p className="text-lg text-white/90 mb-8 max-w-xl">
-              {heroSlides[index].subtitle}. Nestled in the heart of Kolkata, our
-              institute stands as a beacon of quality nursing education.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/admission" className="btn-primary">
-                Enrol Today
-              </Link>
-              <Link href="/courses" className="btn-outline">
-                Explore Courses
-              </Link>
-              <a
-                href={siteConfig.prospectus}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-              >
-                Prospectus
-              </a>
-            </div>
-          </div>
+        <button
+          type="button"
+          aria-label="Previous slide"
+          onClick={() => go(-1)}
+          className="absolute left-3 top-1/2 z-[3] -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-navy-deep/55 text-white hover:bg-navy-deep/80"
+        >
+          ‹
+        </button>
+        <button
+          type="button"
+          aria-label="Next slide"
+          onClick={() => go(1)}
+          className="absolute right-3 top-1/2 z-[3] -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-navy-deep/55 text-white hover:bg-navy-deep/80"
+        >
+          ›
+        </button>
+
+        <div className="absolute bottom-4 left-1/2 z-[3] flex -translate-x-1/2 gap-2">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => setIndex(i)}
+              className={`h-2.5 rounded-full transition-all ${
+                i === index ? "w-8 bg-gold-bright" : "w-2.5 bg-white/70"
+              }`}
+            />
+          ))}
         </div>
       </div>
 
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-[3] flex gap-2">
-        {heroSlides.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            aria-label={`Go to slide ${i + 1}`}
-            onClick={() => setIndex(i)}
-            className={`h-2.5 rounded-full transition-all ${
-              i === index ? "w-8 bg-gold-bright" : "w-2.5 bg-white/50"
-            }`}
-          />
-        ))}
+      <div className="bg-navy text-white">
+        <div className="container-site flex flex-wrap items-center justify-between gap-3 py-3">
+          <p className="text-sm sm:text-base font-semibold">
+            Admission Open — {siteConfig.admissionYear} Session
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Link href="/admission" className="btn-primary text-sm py-2 px-4">
+              Enrol Today
+            </Link>
+            <a
+              href={siteConfig.prospectus}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline text-sm py-2 px-4"
+            >
+              Prospectus
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
