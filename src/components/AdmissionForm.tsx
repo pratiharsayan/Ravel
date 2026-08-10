@@ -25,9 +25,6 @@ export function AdmissionForm() {
         { id: "studentPhone", label: "Student Phone No", type: "tel" },
         { id: "studentEmail", label: "Student Email", type: "email" },
         { id: "dob", label: "Date of Birth", type: "date" },
-        { id: "fatherName", label: "Father's Name", type: "text" },
-        { id: "motherName", label: "Mother's Name", type: "text" },
-        { id: "guardianPhone", label: "Guardian Phone No", type: "tel" },
       ].map((field) => (
         <div key={field.id}>
           <label className="block text-sm font-semibold mb-1.5" htmlFor={field.id}>
@@ -42,41 +39,6 @@ export function AdmissionForm() {
           />
         </div>
       ))}
-
-      <div>
-        <label className="block text-sm font-semibold mb-1.5" htmlFor="gender">
-          Gender *
-        </label>
-        <select id="gender" name="gender" required className="input-field">
-          <option value="">Select</option>
-          <option>Male</option>
-          <option>Female</option>
-        </select>
-      </div>
-
-      <div>
-        <label className="block text-sm font-semibold mb-1.5" htmlFor="marital">
-          Marital Status *
-        </label>
-        <select id="marital" name="marital" required className="input-field">
-          <option value="">Select</option>
-          <option>Single</option>
-          <option>Married</option>
-        </select>
-      </div>
-
-      <div>
-        <label className="block text-sm font-semibold mb-1.5" htmlFor="category">
-          Category *
-        </label>
-        <select id="category" name="category" required className="input-field">
-          <option value="">Select</option>
-          <option>General</option>
-          <option>SC</option>
-          <option>ST</option>
-          <option>OBC</option>
-        </select>
-      </div>
 
       <div>
         <label className="block text-sm font-semibold mb-1.5" htmlFor="course">
