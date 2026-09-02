@@ -143,7 +143,7 @@ export function HomePage() {
           <SectionHeading
             eyebrow="Student reviews"
             title="Learners who practised, not just attended"
-            description="Reviews are illustrative placeholders you can replace from the central testimonials data file."
+            description="Hear how learners describe practical projects and classroom training at XIG Digital in Kolkata."
           />
           <div className="mt-10">
             <TestimonialSlider />

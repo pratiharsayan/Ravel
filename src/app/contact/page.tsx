@@ -33,7 +33,7 @@ export default function ContactPage() {
           <SectionHeading
             eyebrow="Contact"
             title="Enquire about a digital marketing course in Kolkata"
-            description="Share your goal and a counsellor will help you choose the right programme. Contact details are configured in src/data/site.ts."
+            description="Share your goal and a counsellor will help you choose the right programme for a job, freelance work or business growth."
           />
         </div>
       </section>

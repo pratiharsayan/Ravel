@@ -4,9 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { stats } from "@/data/stats";
 
 function useCount(target: number, start: boolean) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(target);
+  const started = useRef(false);
+
   useEffect(() => {
-    if (!start) return;
+    if (!start || started.current) return;
+    started.current = true;
     const duration = 1100;
     const startTime = performance.now();
     let frame = 0;
@@ -18,6 +21,7 @@ function useCount(target: number, start: boolean) {
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
   }, [start, target]);
+
   return value;
 }
 
@@ -45,7 +49,7 @@ export function Stats() {
       ([entry]) => {
         if (entry.isIntersecting) setStart(true);
       },
-      { threshold: 0.4 },
+      { threshold: 0.35 },
     );
     observer.observe(el);
     return () => observer.disconnect();

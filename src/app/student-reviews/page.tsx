@@ -32,7 +32,7 @@ export default function ReviewsPage() {
           <SectionHeading
             eyebrow="Student reviews"
             title="What learners say about practical training"
-            description="Replace these placeholder reviews in src/data/testimonials.ts when you have approved student stories and photos."
+            description="Stories from students and professionals who trained at XIG Digital in Kolkata."
           />
         </div>
       </section>

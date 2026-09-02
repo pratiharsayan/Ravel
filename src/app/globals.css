@@ -146,22 +146,22 @@ body {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  animation: rise 0.7s ease forwards;
+  animation: rise 0.7s ease both;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: none;
+  }
 }
 
 .delay-1 { animation-delay: 80ms; }
 .delay-2 { animation-delay: 160ms; }
 .delay-3 { animation-delay: 240ms; }
 .delay-4 { animation-delay: 320ms; }
-
-@keyframes rise {
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
 
 @keyframes floaty {
   0%, 100% { transform: translateY(0); }
