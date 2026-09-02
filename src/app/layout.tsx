@@ -36,11 +36,17 @@ export const metadata: Metadata = {
     title: "Digital Marketing Course in Kolkata | XIG Digital",
     description: site.shortDescription,
     url: site.urls.website,
+    images: ["/og.svg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Digital Marketing Course in Kolkata | XIG Digital",
     description: site.shortDescription,
+    images: ["/og.svg"],
+  },
+  icons: {
+    icon: "/logo.svg",
+    apple: "/logo.svg",
   },
   robots: {
     index: true,

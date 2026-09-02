@@ -33,11 +33,13 @@ export function buildMetadata({
       siteName: site.name,
       locale: "en_IN",
       type,
+      images: ["/og.svg"],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images: ["/og.svg"],
     },
   };
 }

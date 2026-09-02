@@ -33,3 +33,12 @@ npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## Deploy
+
+The site is a static export (`next build` writes to `out/`).
+
+**Vercel (recommended):** import [the GitHub repo](https://github.com/pratiharsayan/Ravel) at [vercel.com/new](https://vercel.com/new).
+
+**Netlify:** import the same repo, or run `npx netlify deploy --dir=out --prod` after `npm run build`.
+

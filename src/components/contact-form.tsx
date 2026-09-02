@@ -28,25 +28,58 @@ export function ContactForm({ defaultCourse = "", compact = false, onSuccess }: 
     const form = event.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
 
+    const name = String(data.name ?? "").trim();
+    const phone = String(data.phone ?? "").trim();
+    const email = String(data.email ?? "").trim();
+    const selected = String(data.course ?? "").trim();
+    const note = String(data.message ?? "").trim();
+
+    if (name.length < 2) {
+      setStatus("error");
+      setMessage("Please enter your name.");
+      return;
+    }
+    if (phone.replace(/\D/g, "").length < 10) {
+      setStatus("error");
+      setMessage("Please enter a valid phone number.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("error");
+      setMessage("Please enter a valid email.");
+      return;
+    }
+
     try {
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      const json = (await res.json()) as { ok?: boolean; error?: string };
-      if (!res.ok || !json.ok) {
-        throw new Error(json.error || "Unable to submit enquiry");
+      if (res.ok) {
+        const json = (await res.json()) as { ok?: boolean; error?: string };
+        if (json.ok) {
+          setStatus("success");
+          setMessage("Thank you. Our counsellor will contact you shortly.");
+          form.reset();
+          setCourse("");
+          onSuccess?.();
+          return;
+        }
       }
-      setStatus("success");
-      setMessage("Thank you. Our counsellor will contact you shortly.");
-      form.reset();
-      setCourse("");
-      onSuccess?.();
-    } catch (error) {
-      setStatus("error");
-      setMessage(error instanceof Error ? error.message : "Something went wrong.");
+    } catch {
+      // Static hosting has no API route — send the enquiry through WhatsApp.
     }
+
+    const text = encodeURIComponent(
+      `Hi XIG Digital, I would like to enquire.\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nCourse: ${selected || "Not selected"}\nMessage: ${note || "Please call me back."}`,
+    );
+    window.open(`https://wa.me/${site.contact.whatsapp}?text=${text}`, "_blank", "noopener,noreferrer");
+    setStatus("success");
+    setMessage("Thank you. We opened WhatsApp so you can send this enquiry to our counsellor.");
+    form.reset();
+    setCourse("");
+    onSuccess?.();
   }
 
   return (
